@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="actionbar_color">#1893de</color>
+    <color name="drawer_arrow_second_color">#303f9f</color>
+
+    <!-- About library -->
+    <color name="ldrawer_color">#FFFFFF</color>
+
+    <!-- Fragment -->
+    <color name="list_subhead_color">#000</color>
+    <color name="list_body_color">#b0afaf</color>
+
+</resources>

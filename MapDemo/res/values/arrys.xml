@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="drawer_array">
+        <item>天气</item>
+        <item>出行</item>
+        <item>到站提醒</item>
+        <item>系统设置</item>
+    </string-array>
+
+</resources>
