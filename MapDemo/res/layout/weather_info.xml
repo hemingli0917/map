@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/weather_linearlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/todaycalander"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="2015-6-2"
+            android:textColor="@color/whiteColor"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/todaytime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="星期天"
+            android:textColor="@color/whiteColor"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/imagesLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="2dp"
+            android:text="当前城市:"
+            android:textColor="@color/whiteColor"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/dCityText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:text="成 都"
+            android:textColor="@color/whiteColor"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/dForecastImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            android:src="@drawable/weather_sunny" />
+
+        <ImageView
+            android:id="@+id/dMoveLeftImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="90dp"
+            android:layout_marginTop="70dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/weather_cloudy" />
+
+        <ImageView
+            android:id="@+id/dMoveRightImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="70dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/weather_cloudy" />
+
+        <TextView
+            android:id="@+id/dweatherText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="60dp"
+            android:padding="5dp"
+            android:text="晴"
+            android:textColor="@color/whiteColor"
+            android:textSize="24sp"
+            android:width="100dip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:padding="5dp"
+            android:text="湿    度:"
+            android:textColor="@color/whiteColor"
+            android:textSize="10sp"
+            android:width="50dp" />
+
+        <TextView
+            android:id="@+id/dHumidityText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:padding="5dp"
+            android:text="  91"
+            android:textColor="@color/whiteColor"
+            android:textSize="18sp"
+            android:width="160dip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="110dp"
+            android:padding="5dp"
+            android:text="风级风向:"
+            android:textColor="@color/whiteColor"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/dWindText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            android:padding="5dp"
+            android:text="风级风向"
+            android:textColor="@color/whiteColor"
+            android:textSize="18sp"
+            android:width="160dip" />
+
+        <TextView
+            android:id="@+id/dTempCText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@+id/dCityText"
+            android:padding="5dp"
+            android:text="29°"
+            android:textColor="@color/whiteColor"
+            android:textSize="46sp" />
+    </RelativeLayout>
+
+    <LinearLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/weather_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</LinearLayout>

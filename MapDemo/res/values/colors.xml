@@ -11,4 +11,11 @@
     <color name="list_subhead_color">#000</color>
     <color name="list_body_color">#b0afaf</color>
 
+    <!-- weather -->
+    <color name="widgetBgColor">#20000000</color>
+    <color name="widgetFontColor">#13aaf1</color>
+    <color name="tempCColor">#fdb814</color>
+    <color name="zoneTempColor">#a9a7a6</color>
+    <color name="whiteColor">#ffffff</color>
+
 </resources>

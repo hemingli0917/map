@@ -12,6 +12,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ListView;
 
 import com.amap.api.services.core.PoiItem;
+import com.example.adapter.RouteSearchAdapter;
 
 public class RouteSearchPoiDialog extends Dialog implements
 		OnItemClickListener, OnItemSelectedListener {

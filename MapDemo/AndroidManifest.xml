@@ -26,6 +26,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.mapdemo.RouteActivity" >
+        </activity>
+        <activity android:name="com.example.mapdemo.GeoFenceActivity" >
+        </activity>
+        <activity android:name="com.example.mapdemo.WeatherActivity" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

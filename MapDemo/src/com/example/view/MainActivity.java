@@ -7,7 +7,7 @@ import java.util.Map;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.GravityCompat;
@@ -22,6 +22,8 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.mapdemo.R;
+import com.example.mapdemo.RouteActivity;
+import com.example.mapdemo.WeatherActivity;
 
 public class MainActivity extends Activity {
 	private ActionBar ab;
@@ -32,7 +34,7 @@ public class MainActivity extends Activity {
 	private String[] mListTitles;
 	private CharSequence mTitle;
 	private CharSequence mDrawerTitle;
-	private boolean isWarnedToClose = false;
+	private boolean isWarnedToClose = false;// ÍË³ö±êÖ¾
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -112,12 +114,13 @@ public class MainActivity extends Activity {
 
 		switch (position) {
 		case 0:
-
+			Intent myweatherintent = new Intent(this, WeatherActivity.class);
+			startActivity(myweatherintent);
 			break;
 
 		case 1:
-
-			break;
+			Intent myrouteintent = new Intent(this, RouteActivity.class);
+			startActivity(myrouteintent);
 
 		case 2:
 
@@ -161,7 +164,6 @@ public class MainActivity extends Activity {
 			}, 2000);
 		}
 	}
-
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
