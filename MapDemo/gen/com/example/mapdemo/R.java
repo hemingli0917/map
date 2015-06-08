@@ -10,13 +10,19 @@ package com.example.mapdemo;
 public final class R {
     public static final class array {
         public static final int drawer_array=0x7f040000;
-        public static final int layers_array=0x7f040001;
     }
     public static final class attr {
     }
     public static final class color {
         public static final int actionbar_color=0x7f050000;
+        public static final int apptheme_accent=0x7f050008;
+        /**  actionbar 
+         */
+        public static final int apptheme_primary=0x7f050006;
+        public static final int apptheme_primary_dark=0x7f050007;
         public static final int drawer_arrow_second_color=0x7f050001;
+        public static final int gradient_light_start=0x7f05000a;
+        public static final int gradient_start=0x7f050009;
         /**  About library 
          */
         public static final int ldrawer_color=0x7f050002;
@@ -24,15 +30,12 @@ public final class R {
         /**  Fragment 
          */
         public static final int list_subhead_color=0x7f050003;
-        public static final int tempCColor=0x7f050007;
-        public static final int whiteColor=0x7f050009;
         /**  weather 
          */
-        public static final int widgetBgColor=0x7f050005;
-        public static final int widgetFontColor=0x7f050006;
-        public static final int zoneTempColor=0x7f050008;
+        public static final int whiteColor=0x7f050005;
     }
     public static final class dimen {
+        public static final int action_bar_height=0x7f06000a;
         /**  Default screen margins, per the Android Design guidelines. 
 
          Customize dimensions originally defined in res/values/dimens.xml (such as
@@ -50,336 +53,269 @@ public final class R {
         public static final int ldrawer_thickness=0x7f060006;
         public static final int ldrawer_topBottomBarArrowSize=0x7f060005;
         public static final int navdrawer_width=0x7f060002;
+        /**  actionbar 
+         */
+        public static final int navigation_drawer_width=0x7f060009;
     }
     public static final class drawable {
-        public static final int alarm=0x7f020000;
-        public static final int badge_sa=0x7f020001;
-        public static final int badge_wa=0x7f020002;
-        public static final int btn_default_small=0x7f020003;
-        public static final int btn_default_small_normal=0x7f020004;
-        public static final int btn_default_small_normal_disable=0x7f020005;
-        public static final int btn_default_small_pressed=0x7f020006;
-        public static final int btn_map_poi=0x7f020007;
-        public static final int btn_nav_drag_down=0x7f020008;
-        public static final int btn_nav_drag_down_normal=0x7f020009;
-        public static final int btn_nav_drag_down_pressed=0x7f02000a;
-        public static final int btn_poi_search_normal=0x7f02000b;
-        public static final int btn_route_next=0x7f02000c;
-        public static final int btn_route_pre=0x7f02000d;
-        public static final int bus=0x7f02000e;
-        public static final int car=0x7f02000f;
-        public static final int cloudy=0x7f020010;
-        public static final int cloudyrain=0x7f020011;
-        public static final int contacts=0x7f020012;
-        public static final int custom_info_bubble=0x7f020013;
-        public static final int direct_mapsearch=0x7f020014;
-        public static final int direct_mapsearch_pressed=0x7f020015;
-        public static final int divider=0x7f020016;
-        public static final int dots=0x7f020017;
-        public static final int downarrow=0x7f020018;
-        public static final int drawer_shadow=0x7f020019;
-        public static final int end=0x7f02001a;
-        public static final int equip=0x7f02001b;
-        public static final int flurries=0x7f02001c;
-        public static final int fog=0x7f02001d;
-        public static final int groundoverlay=0x7f02001e;
-        public static final int ic_drawer=0x7f02001f;
-        public static final int ic_launcher=0x7f020020;
-        public static final int icerain=0x7f020021;
-        public static final int icon_poisearch=0x7f020022;
-        public static final int layer_cloud1=0x7f020023;
-        public static final int layer_cloud2=0x7f020024;
-        public static final int layer_drop1=0x7f020025;
-        public static final int layer_drop2=0x7f020026;
-        public static final int layer_drop3=0x7f020027;
-        public static final int layer_drop4=0x7f020028;
-        public static final int layer_drop5=0x7f020029;
-        public static final int layer_drop6=0x7f02002a;
-        public static final int layer_drop7=0x7f02002b;
-        public static final int layer_lightning1=0x7f02002c;
-        public static final int layer_lightning2=0x7f02002d;
-        public static final int layer_lightning3=0x7f02002e;
-        public static final int left_back=0x7f02002f;
-        public static final int lightrain=0x7f020030;
-        public static final int location_marker=0x7f020031;
-        public static final int man=0x7f020032;
-        public static final int mode_driving=0x7f020033;
-        public static final int mode_driving_focused=0x7f020034;
-        public static final int mode_driving_off=0x7f020035;
-        public static final int mode_driving_on=0x7f020036;
-        public static final int mode_transit=0x7f020037;
-        public static final int mode_transit_focused=0x7f020038;
-        public static final int mode_transit_off=0x7f020039;
-        public static final int mode_transit_on=0x7f02003a;
-        public static final int mode_walk=0x7f02003b;
-        public static final int mode_walk_focused=0x7f02003c;
-        public static final int mode_walk_off=0x7f02003d;
-        public static final int mode_walk_on=0x7f02003e;
-        public static final int mostlysunny=0x7f02003f;
-        public static final int next=0x7f020040;
-        public static final int next_disable=0x7f020041;
-        public static final int point=0x7f020042;
-        public static final int point1=0x7f020043;
-        public static final int point2=0x7f020044;
-        public static final int point3=0x7f020045;
-        public static final int point4=0x7f020046;
-        public static final int point5=0x7f020047;
-        public static final int point6=0x7f020048;
-        public static final int prev=0x7f020049;
-        public static final int prev_disable=0x7f02004a;
-        public static final int rain=0x7f02004b;
-        public static final int rain1=0x7f02004c;
-        public static final int rain2=0x7f02004d;
-        public static final int rain3=0x7f02004e;
-        public static final int rightarrow=0x7f02004f;
-        public static final int search_plate_global=0x7f020050;
-        public static final int setting=0x7f020051;
-        public static final int snow=0x7f020052;
-        public static final int start=0x7f020053;
-        public static final int start_uri=0x7f020054;
-        public static final int storm=0x7f020055;
-        public static final int sun=0x7f020056;
-        public static final int text_search=0x7f020057;
-        public static final int text_search_default=0x7f020058;
-        public static final int text_search_pressed=0x7f020059;
-        public static final int text_search_selected=0x7f02005a;
-        public static final int weather=0x7f02005b;
-        public static final int weather_chancesnow=0x7f02005c;
-        public static final int weather_chancesnow_n=0x7f02005d;
-        public static final int weather_chancestorm=0x7f02005e;
-        public static final int weather_chancestorm_n=0x7f02005f;
-        public static final int weather_cloudy=0x7f020060;
-        public static final int weather_cloudyrain=0x7f020061;
-        public static final int weather_cloudyrain_n=0x7f020062;
-        public static final int weather_flurries=0x7f020063;
-        public static final int weather_fog=0x7f020064;
-        public static final int weather_haze=0x7f020065;
-        public static final int weather_icyrain=0x7f020066;
-        public static final int weather_lightrain=0x7f020067;
-        public static final int weather_mostlycloudy=0x7f020068;
-        public static final int weather_mostlycloudy_n=0x7f020069;
-        public static final int weather_mostlysunny=0x7f02006a;
-        public static final int weather_mostlysunny_n=0x7f02006b;
-        public static final int weather_rain=0x7f02006c;
-        public static final int weather_snow=0x7f02006d;
-        public static final int weather_storm=0x7f02006e;
-        public static final int weather_sunny=0x7f02006f;
-        public static final int weather_sunny_n=0x7f020070;
-        public static final int weatherbg=0x7f020071;
+        public static final int actionbar_icon_placeholder_compat=0x7f020000;
+        public static final int actionbar_shadow=0x7f020001;
+        public static final int alarm=0x7f020002;
+        public static final int badge_sa=0x7f020003;
+        public static final int badge_wa=0x7f020004;
+        public static final int btn_default_small=0x7f020005;
+        public static final int btn_default_small_normal=0x7f020006;
+        public static final int btn_default_small_normal_disable=0x7f020007;
+        public static final int btn_default_small_pressed=0x7f020008;
+        public static final int btn_map_poi=0x7f020009;
+        public static final int btn_nav_drag_down=0x7f02000a;
+        public static final int btn_nav_drag_down_normal=0x7f02000b;
+        public static final int btn_nav_drag_down_pressed=0x7f02000c;
+        public static final int btn_poi_search_normal=0x7f02000d;
+        public static final int btn_route_next=0x7f02000e;
+        public static final int btn_route_pre=0x7f02000f;
+        public static final int bus=0x7f020010;
+        public static final int car=0x7f020011;
+        public static final int cloudy=0x7f020012;
+        public static final int cloudyrain=0x7f020013;
+        public static final int contacts=0x7f020014;
+        public static final int custom_info_bubble=0x7f020015;
+        public static final int direct_mapsearch=0x7f020016;
+        public static final int direct_mapsearch_pressed=0x7f020017;
+        public static final int divider=0x7f020018;
+        public static final int dots=0x7f020019;
+        public static final int downarrow=0x7f02001a;
+        public static final int drawer_shadow=0x7f02001b;
+        public static final int end=0x7f02001c;
+        public static final int equip=0x7f02001d;
+        public static final int flurries=0x7f02001e;
+        public static final int fog=0x7f02001f;
+        public static final int groundoverlay=0x7f020020;
+        public static final int ic_ab_overflow_compat=0x7f020021;
+        public static final int ic_ab_up_compat=0x7f020022;
+        public static final int ic_drawer=0x7f020023;
+        public static final int ic_launcher=0x7f020024;
+        public static final int icerain=0x7f020025;
+        public static final int icon_poisearch=0x7f020026;
+        public static final int layer_cloud1=0x7f020027;
+        public static final int layer_cloud2=0x7f020028;
+        public static final int layer_drop1=0x7f020029;
+        public static final int layer_drop2=0x7f02002a;
+        public static final int layer_drop3=0x7f02002b;
+        public static final int layer_drop4=0x7f02002c;
+        public static final int layer_drop5=0x7f02002d;
+        public static final int layer_drop6=0x7f02002e;
+        public static final int layer_drop7=0x7f02002f;
+        public static final int layer_lightning1=0x7f020030;
+        public static final int layer_lightning2=0x7f020031;
+        public static final int layer_lightning3=0x7f020032;
+        public static final int left_back=0x7f020033;
+        public static final int lightrain=0x7f020034;
+        public static final int location_marker=0x7f020035;
+        public static final int man=0x7f020036;
+        public static final int mode_driving=0x7f020037;
+        public static final int mode_driving_focused=0x7f020038;
+        public static final int mode_driving_off=0x7f020039;
+        public static final int mode_driving_on=0x7f02003a;
+        public static final int mode_transit=0x7f02003b;
+        public static final int mode_transit_focused=0x7f02003c;
+        public static final int mode_transit_off=0x7f02003d;
+        public static final int mode_transit_on=0x7f02003e;
+        public static final int mode_walk=0x7f02003f;
+        public static final int mode_walk_focused=0x7f020040;
+        public static final int mode_walk_off=0x7f020041;
+        public static final int mode_walk_on=0x7f020042;
+        public static final int mostlysunny=0x7f020043;
+        public static final int navigation_drawer_shadow=0x7f020044;
+        public static final int next=0x7f020045;
+        public static final int next_disable=0x7f020046;
+        public static final int point=0x7f020047;
+        public static final int point1=0x7f020048;
+        public static final int point2=0x7f020049;
+        public static final int point3=0x7f02004a;
+        public static final int point4=0x7f02004b;
+        public static final int point5=0x7f02004c;
+        public static final int point6=0x7f02004d;
+        public static final int prev=0x7f02004e;
+        public static final int prev_disable=0x7f02004f;
+        public static final int rain=0x7f020050;
+        public static final int rain1=0x7f020051;
+        public static final int rain2=0x7f020052;
+        public static final int rain3=0x7f020053;
+        public static final int rightarrow=0x7f020054;
+        public static final int search_plate_global=0x7f020055;
+        public static final int setting=0x7f020056;
+        public static final int setting_btn=0x7f020057;
+        public static final int snow=0x7f020058;
+        public static final int start=0x7f020059;
+        public static final int start_uri=0x7f02005a;
+        public static final int storm=0x7f02005b;
+        public static final int sun=0x7f02005c;
+        public static final int text_search=0x7f02005d;
+        public static final int text_search_default=0x7f02005e;
+        public static final int text_search_pressed=0x7f02005f;
+        public static final int text_search_selected=0x7f020060;
+        public static final int weather=0x7f020061;
+        public static final int weather_chancesnow=0x7f020062;
+        public static final int weather_chancesnow_n=0x7f020063;
+        public static final int weather_chancestorm=0x7f020064;
+        public static final int weather_chancestorm_n=0x7f020065;
+        public static final int weather_cloudy=0x7f020066;
+        public static final int weather_cloudyrain=0x7f020067;
+        public static final int weather_cloudyrain_n=0x7f020068;
+        public static final int weather_flurries=0x7f020069;
+        public static final int weather_fog=0x7f02006a;
+        public static final int weather_haze=0x7f02006b;
+        public static final int weather_icyrain=0x7f02006c;
+        public static final int weather_lightrain=0x7f02006d;
+        public static final int weather_mostlycloudy=0x7f02006e;
+        public static final int weather_mostlycloudy_n=0x7f02006f;
+        public static final int weather_mostlysunny=0x7f020070;
+        public static final int weather_mostlysunny_n=0x7f020071;
+        public static final int weather_rain=0x7f020072;
+        public static final int weather_snow=0x7f020073;
+        public static final int weather_storm=0x7f020074;
+        public static final int weather_sunny=0x7f020075;
+        public static final int weather_sunny_n=0x7f020076;
+        public static final int weatherbg=0x7f020077;
     }
     public static final class id {
-        public static final int ListView_nav_search_list_poi=0x7f0a001a;
-        public static final int RelativeLayout_roadsearch_top=0x7f0a000d;
-        public static final int aciton_exit=0x7f0a002a;
-        public static final int action_sort=0x7f0a0029;
-        public static final int autotextview_roadsearch_goals=0x7f0a0013;
-        public static final int autotextview_roadsearch_start=0x7f0a0012;
-        public static final int btn_layout=0x7f0a0014;
-        public static final int dCityText=0x7f0a001f;
-        public static final int dForecastImage=0x7f0a0021;
-        public static final int dHumidityText=0x7f0a0025;
-        public static final int dMoveLeftImage=0x7f0a0022;
-        public static final int dMoveRightImage=0x7f0a0023;
-        public static final int dTempCText=0x7f0a0027;
-        public static final int dWindText=0x7f0a0026;
+        public static final int ListView_nav_search_list_poi=0x7f0a001e;
+        public static final int RelativeLayout_roadsearch_top=0x7f0a0011;
+        public static final int aciton_exit=0x7f0a0032;
+        public static final int action_sort=0x7f0a0031;
+        public static final int autotextview_roadsearch_goals=0x7f0a0017;
+        public static final int autotextview_roadsearch_start=0x7f0a0016;
+        public static final int btn_layout=0x7f0a0018;
+        public static final int dCityText=0x7f0a0023;
+        public static final int dForecastImage=0x7f0a0025;
+        public static final int dHumidityText=0x7f0a0029;
+        public static final int dMoveLeftImage=0x7f0a0026;
+        public static final int dMoveRightImage=0x7f0a0027;
+        public static final int dTempCText=0x7f0a002b;
+        public static final int dWindText=0x7f0a002a;
         public static final int drawer_layout=0x7f0a0006;
-        public static final int dweatherText=0x7f0a0024;
+        public static final int dweatherText=0x7f0a0028;
         public static final int geomap=0x7f0a0000;
         public static final int gps_follow_button=0x7f0a0004;
         public static final int gps_locate_button=0x7f0a0003;
         public static final int gps_radio_group=0x7f0a0002;
         public static final int gps_rotate_button=0x7f0a0005;
-        public static final int imagebtn_roadsearch_endoption=0x7f0a0010;
-        public static final int imagebtn_roadsearch_search=0x7f0a0018;
-        public static final int imagebtn_roadsearch_startoption=0x7f0a000e;
-        public static final int imagebtn_roadsearch_tab_driving=0x7f0a0016;
-        public static final int imagebtn_roadsearch_tab_transit=0x7f0a0015;
-        public static final int imagebtn_roadsearch_tab_walk=0x7f0a0017;
-        public static final int imagesLayout=0x7f0a001e;
-        public static final int main_container=0x7f0a0007;
-        public static final int map=0x7f0a0019;
+        public static final int imagebtn_roadsearch_endoption=0x7f0a0014;
+        public static final int imagebtn_roadsearch_search=0x7f0a001c;
+        public static final int imagebtn_roadsearch_startoption=0x7f0a0012;
+        public static final int imagebtn_roadsearch_tab_driving=0x7f0a001a;
+        public static final int imagebtn_roadsearch_tab_transit=0x7f0a0019;
+        public static final int imagebtn_roadsearch_tab_walk=0x7f0a001b;
+        public static final int imagesLayout=0x7f0a0022;
+        public static final int main_goout=0x7f0a0009;
+        public static final int main_tab_alarm=0x7f0a000a;
+        public static final int main_tab_group=0x7f0a0007;
+        public static final int main_tab_settings=0x7f0a000b;
+        public static final int main_tab_weather=0x7f0a0008;
+        public static final int map=0x7f0a001d;
         public static final int mylocationmap=0x7f0a0001;
-        public static final int nav_icon=0x7f0a0009;
-        public static final int nav_text=0x7f0a000a;
-        public static final int navdrawer=0x7f0a0008;
-        public static final int poiAddress=0x7f0a000c;
-        public static final int poiName=0x7f0a000b;
-        public static final int textView1=0x7f0a0020;
-        public static final int todaycalander=0x7f0a001c;
-        public static final int todaytime=0x7f0a001d;
-        public static final int tv_endselecttips=0x7f0a0011;
-        public static final int tv_startselecttips=0x7f0a000f;
-        public static final int weather_linearlayout=0x7f0a001b;
-        public static final int weather_lv=0x7f0a0028;
+        public static final int nav_icon=0x7f0a000d;
+        public static final int nav_text=0x7f0a000e;
+        public static final int navigation_drawer=0x7f0a000c;
+        public static final int poiAddress=0x7f0a0010;
+        public static final int poiName=0x7f0a000f;
+        public static final int textView1=0x7f0a0024;
+        public static final int todaycalander=0x7f0a0020;
+        public static final int todaytime=0x7f0a0021;
+        public static final int tv_endselecttips=0x7f0a0015;
+        public static final int tv_startselecttips=0x7f0a0013;
+        public static final int weather_daytoday=0x7f0a002d;
+        public static final int weather_dir=0x7f0a0030;
+        public static final int weather_info=0x7f0a002e;
+        public static final int weather_linearlayout=0x7f0a001f;
+        public static final int weather_lv=0x7f0a002c;
+        public static final int weather_temp=0x7f0a002f;
     }
     public static final class layout {
         public static final int activity_geofence=0x7f030000;
         public static final int activity_multy_location=0x7f030001;
-        public static final int main_activity=0x7f030002;
+        public static final int main_=0x7f030002;
         public static final int navigator_item=0x7f030003;
         public static final int poi_result_list=0x7f030004;
         public static final int route_activity=0x7f030005;
         public static final int routesearch_list_poi=0x7f030006;
-        public static final int weather_info=0x7f030007;
-        public static final int weather_infoitem=0x7f030008;
+        public static final int sysseting=0x7f030007;
+        public static final int weather_info=0x7f030008;
+        public static final int weather_infoitem=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f090000;
     }
     public static final class string {
-        public static final int action_exit=0x7f07008a;
+        public static final int action_exit=0x7f070020;
         public static final int action_settings=0x7f070001;
-        public static final int action_sort=0x7f070089;
-        public static final int animate=0x7f070003;
+        public static final int action_sort=0x7f07001f;
+        public static final int alarm=0x7f07001b;
         public static final int app_name=0x7f070000;
-        public static final int arc_demo=0x7f070045;
-        public static final int arc_description=0x7f070046;
-        public static final int base_fragment_description=0x7f070008;
-        public static final int base_fragment_map=0x7f070007;
-        public static final int basic_description=0x7f070006;
-        public static final int basic_map=0x7f070005;
         /**  offlinemap 
          */
-        public static final int beijing=0x7f070074;
-        public static final int bottom_center=0x7f07007c;
-        public static final int bottom_left=0x7f07007b;
-        public static final int bottom_right=0x7f07007d;
-        public static final int busline_demo=0x7f07004c;
-        public static final int busline_description=0x7f07004d;
-        public static final int buttonScale=0x7f070073;
-        public static final int camera_demo=0x7f070009;
-        public static final int camera_description=0x7f07000a;
-        public static final int center_right=0x7f07007e;
-        public static final int circle_demo=0x7f070041;
-        public static final int circle_description=0x7f070042;
-        public static final int city=0x7f070085;
-        public static final int clear_map=0x7f07000d;
-        public static final int compass=0x7f07000e;
-        public static final int custom_info_contents=0x7f07000f;
-        public static final int custom_info_window=0x7f070010;
-        public static final int default_info_window=0x7f070011;
-        public static final int demo_title=0x7f070012;
-        public static final int district=0x7f070086;
-        public static final int district_demo=0x7f070068;
-        public static final int district_description=0x7f070069;
-        public static final int down_arrow=0x7f070013;
-        public static final int drag_melbourne=0x7f070014;
-        public static final int drawer_close=0x7f070088;
+        public static final int beijing=0x7f070006;
+        public static final int bottom_center=0x7f07000e;
+        public static final int bottom_left=0x7f07000d;
+        public static final int bottom_right=0x7f07000f;
+        public static final int center_right=0x7f070010;
+        public static final int city=0x7f070017;
+        public static final int district=0x7f070018;
+        public static final int error_key=0x7f070013;
+        public static final int error_network=0x7f070012;
+        public static final int error_other=0x7f070014;
+        public static final int goout=0x7f07001a;
+        public static final int gpsfollow=0x7f070004;
+        public static final int gpslocate=0x7f070005;
+        public static final int location=0x7f070003;
+        public static final int location_select=0x7f070002;
+        public static final int logo_position=0x7f07000c;
+        public static final int map_screenshot=0x7f070011;
+        public static final int navigation_drawer_close=0x7f07001e;
+        public static final int navigation_drawer_open=0x7f07001d;
+        public static final int no_result=0x7f070015;
+        public static final int pause=0x7f070008;
+        public static final int province=0x7f070016;
+        public static final int remove=0x7f07000a;
+        public static final int setting=0x7f07001c;
+        public static final int start=0x7f070007;
+        public static final int stop=0x7f070009;
+        public static final int update=0x7f07000b;
         /**  mainview 
          */
-        public static final int drawer_open=0x7f070087;
-        public static final int error_key=0x7f070081;
-        public static final int error_network=0x7f070080;
-        public static final int error_other=0x7f070082;
-        public static final int events_demo=0x7f070015;
-        public static final int events_description=0x7f070016;
-        public static final int fill_color=0x7f070018;
-        public static final int fill_stroke=0x7f070017;
-        public static final int geocoder_demo=0x7f070060;
-        public static final int geocoder_description=0x7f070061;
-        public static final int go_to_lujiazui=0x7f07001a;
-        public static final int go_to_zhongguancun=0x7f070019;
-        public static final int gpsfollow=0x7f07001d;
-        public static final int gpslocate=0x7f07001e;
-        public static final int gpsrotate=0x7f07001f;
-        public static final int groundoverlay_demo=0x7f07003f;
-        public static final int groundoverlay_description=0x7f070040;
-        public static final int heatmap_demo=0x7f07000b;
-        public static final int heatmap_description=0x7f07000c;
-        public static final int hello_world=0x7f070002;
-        public static final int hybrid=0x7f07001b;
-        public static final int layers_demo=0x7f070022;
-        public static final int layers_description=0x7f070023;
-        public static final int left_arrow=0x7f070024;
-        public static final int location=0x7f07001c;
-        public static final int locationGPS_demo=0x7f07002b;
-        public static final int locationGPS_description=0x7f07002c;
-        public static final int locationNetwork_demo=0x7f07002e;
-        public static final int locationNetwork_description=0x7f07002d;
-        public static final int locationSensorGPS_demo=0x7f070025;
-        public static final int locationSensorGPS_demo_description=0x7f070026;
-        public static final int location_select=0x7f070004;
-        public static final int locationmodesource_demo=0x7f070029;
-        public static final int locationmodesource_description=0x7f07002a;
-        public static final int locationsource_demo=0x7f070027;
-        public static final int locationsource_description=0x7f070028;
-        public static final int logo_position=0x7f07007a;
-        public static final int mapOption_demo=0x7f070031;
-        public static final int mapOption_description=0x7f070032;
-        public static final int map_not_ready=0x7f070033;
-        public static final int map_screenshot=0x7f07007f;
-        public static final int marker_demo=0x7f07002f;
-        public static final int marker_description=0x7f070030;
-        public static final int move_the_camera=0x7f070034;
-        public static final int my_location=0x7f070036;
-        public static final int mylocation_layer=0x7f070037;
-        public static final int navigatearrow_demo=0x7f070043;
-        public static final int navigatearrow_description=0x7f070044;
-        public static final int night_mode=0x7f07003a;
-        public static final int no_demos=0x7f070038;
-        public static final int no_result=0x7f070083;
-        public static final int normal=0x7f070039;
-        public static final int offlinemap_demo=0x7f070066;
-        public static final int offlinemap_description=0x7f070067;
-        public static final int opengl_demo=0x7f07005c;
-        public static final int opengl_description=0x7f07005d;
-        public static final int pause=0x7f070076;
-        public static final int poiaroundsearch_demo=0x7f070064;
-        public static final int poiaroundsearch_description=0x7f070065;
-        public static final int poiclick_demo=0x7f070020;
-        public static final int poiclick_description=0x7f070021;
-        public static final int poikeywordsearch_demo=0x7f070062;
-        public static final int poikeywordsearch_description=0x7f070063;
-        public static final int polygon_demo=0x7f07003b;
-        public static final int polygon_description=0x7f07003c;
-        public static final int polyline_demo=0x7f07003d;
-        public static final int polyline_description=0x7f07003e;
-        public static final int properties_circle=0x7f07004b;
-        public static final int properties_polygon=0x7f07004a;
-        public static final int properties_polyline=0x7f070049;
-        public static final int province=0x7f070084;
-        public static final int remove=0x7f070078;
-        public static final int reset_map=0x7f070051;
-        public static final int right_arrow=0x7f070052;
-        public static final int rotate=0x7f070050;
-        public static final int route_demo=0x7f07004e;
-        public static final int route_description=0x7f07004f;
-        public static final int satellite=0x7f070053;
-        public static final int scale=0x7f070072;
-        public static final int screenshot_demo=0x7f070047;
-        public static final int screenshot_description=0x7f070048;
-        public static final int scroll=0x7f070054;
-        public static final int search_title=0x7f07006a;
-        public static final int start=0x7f070075;
-        public static final int stop=0x7f070077;
-        public static final int stop_animation=0x7f070055;
-        public static final int stroke_width=0x7f070056;
-        public static final int tap_instructions=0x7f070057;
-        public static final int terrain=0x7f070058;
-        public static final int tilt=0x7f070059;
-        public static final int touch_the_map=0x7f070035;
-        public static final int traffic=0x7f07005a;
-        public static final int transparency=0x7f07005b;
-        public static final int uisettings_demo=0x7f07005e;
-        public static final int uisettings_description=0x7f07005f;
-        public static final int up_arrow=0x7f07006b;
-        public static final int update=0x7f070079;
-        public static final int width=0x7f07006c;
-        public static final int zoom_buttons=0x7f07006e;
-        public static final int zoom_gestures=0x7f07006f;
-        public static final int zoom_in=0x7f070070;
-        public static final int zoom_out=0x7f070071;
-        public static final int zoom_position=0x7f07006d;
+        public static final int weather=0x7f070019;
+        public static final int weather_dir=0x7f070023;
+        /**  weather 
+         */
+        public static final int weather_info=0x7f070021;
+        public static final int weather_temp=0x7f070022;
     }
     public static final class style {
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+
+
+
+
+
+
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
+
+
+
+
+
+
+
         
 
         Base application theme for API 11+. This theme completely replaces
@@ -398,5 +334,9 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f080001;
+        public static final int AppTheme_ActionBar=0x7f080003;
+        public static final int AppTheme_ActionBar_Overflow=0x7f080005;
+        public static final int AppTheme_ActionBar_Title=0x7f080004;
+        public static final int main_tab_bottom=0x7f080002;
     }
 }

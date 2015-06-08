@@ -32,6 +32,8 @@
         </activity>
         <activity android:name="com.example.mapdemo.WeatherActivity" >
         </activity>
+        <activity android:name="com.example.mapdemo.SettingActivity" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

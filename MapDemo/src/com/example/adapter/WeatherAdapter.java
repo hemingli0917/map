@@ -11,19 +11,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class WeatherAdapter extends BaseAdapter {
 	private Context context;
 	private LayoutInflater mInflater;
+	private String mday[];
 	List<AMapLocalDayWeatherForecast> forecasts;
 
 	public WeatherAdapter(Context context,
-			List<AMapLocalDayWeatherForecast> forecasts) {
+			List<AMapLocalDayWeatherForecast> forecasts, String[] mway) {
 
 		super();
 		this.context = context;
 		this.forecasts = forecasts;
+		this.mday = mway;
 		mInflater = LayoutInflater.from(context);
 
 	}
@@ -31,7 +34,7 @@ public class WeatherAdapter extends BaseAdapter {
 	@Override
 	public int getCount() {
 
-		return forecasts.size();
+		return forecasts.size() - 1;
 	}
 
 	@Override
@@ -48,45 +51,43 @@ public class WeatherAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+		ViewHolder holder = null;
 		if (convertView == null) {
 			convertView = mInflater.inflate(R.layout.weather_infoitem, null);
-			for (int i = 0; i < forecasts.size(); i++) {
-				AMapLocalDayWeatherForecast forecast = forecasts.get(i);
+			holder = new ViewHolder();
+			/*
+			 * listview控件初始化
+			 */
+			holder.mTomorrowTime = (TextView) convertView
+					.findViewById(R.id.weather_daytoday);// 明天时间
+			holder.mnexttherinfo = (TextView) convertView
+					.findViewById(R.id.weather_info);// 下一天天气状况
+			holder.mnextthertemp = (TextView) convertView
+					.findViewById(R.id.weather_temp);// 下一天温度状况
+			holder.mnexttherdir = (TextView) convertView
+					.findViewById(R.id.weather_dir);// 下一天风向状况
 
-				switch (i) {
-				case 0:
+			AMapLocalDayWeatherForecast forecast = forecasts.get(position + 1);
 
-					break;
-				case 1:
-					// mWeatherLocationTextView.setText(forecast.getCity());
-					// mTodayTimeTextView.setText("明天 ( " + forecast.getDate()
-					// + " )");
-					// mTodayWeatherTextView.setText(forecast.getDayWeather()
-					// + "    " + forecast.getDayTemp() + "℃/"
-					// + forecast.getNightTemp() + "℃    "
-					// + forecast.getDayWindPower() + "级");
+			holder.mTomorrowTime.setText("星期" + mday[position]);
+			holder.mnexttherinfo.setText(forecast.getDayWeather());
+			holder.mnextthertemp.setText(forecast.getNightTemp() + "~"
+					+ forecast.getDayTemp() + "°");
+			holder.mnexttherdir.setText(forecast.getDayWindDir() + "风"
+					+ forecast.getDayWindPower() + "级");
 
-					break;
-				case 2:
-					// mWeatherLocationTextView.setText(forecast.getCity());
-					// mTodayTimeTextView.setText("后天 ( " + forecast.getDate()
-					// + " )");
-					// mTodayWeatherTextView.setText(forecast.getDayWeather()
-					// + "    " + forecast.getDayTemp() + "℃/"
-					// + forecast.getNightTemp() + "℃    "
-					// + forecast.getDayWindPower() + "级");
-					break;
-				case 3:
-
-					break;
-
-				default:
-					break;
-				}
-			}
+			convertView.setTag(holder);
+		} else {
+			holder = (ViewHolder) convertView.getTag();
 		}
 
 		return convertView;
 	}
 
+	public static class ViewHolder {
+		private TextView mTomorrowTime;// 明天时间
+		private TextView mnexttherinfo;// 下一天天气状况
+		private TextView mnextthertemp;// 下一天温度状况
+		private TextView mnexttherdir;// 下一天风向状况
+	}
 }

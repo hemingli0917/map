@@ -72,14 +72,12 @@ import com.example.mapdemo.RouteSearchPoiDialog.OnListItemClick;
 public class RouteActivity extends Activity implements OnMarkerClickListener,
 		OnPOIClickListener, OnMapClickListener, OnInfoWindowClickListener,
 		InfoWindowAdapter, OnPoiSearchListener, OnRouteSearchListener,
-		LocationSource, AMapLocationListener, OnCheckedChangeListener,
-		OnClickListener {
+		LocationSource, AMapLocationListener, OnClickListener {
 	private AMap aMap;
 	private MapView mapView;
 	// 点位
 	private OnLocationChangedListener mListener;
 	private LocationManagerProxy mAMapLocationManager;
-	private RadioGroup mGPSModeGroup;
 	private String mcitycode;
 
 	private Button drivingButton;
@@ -142,8 +140,7 @@ public class RouteActivity extends Activity implements OnMarkerClickListener,
 			setUpMap();
 			registerListener();// 注册监听
 		}
-		mGPSModeGroup = (RadioGroup) findViewById(R.id.gps_radio_group);
-		mGPSModeGroup.setOnCheckedChangeListener(this);
+
 		routeSearch = new RouteSearch(this);
 		routeSearch.setRouteSearchListener(this);
 		startTextView = (EditText) findViewById(R.id.autotextview_roadsearch_start);
@@ -720,28 +717,6 @@ public class RouteActivity extends Activity implements OnMarkerClickListener,
 
 	@Override
 	public void onProviderDisabled(String provider) {
-
-	}
-
-	/*
-	 * RadioButton 的监听事件
-	 */
-	@Override
-	public void onCheckedChanged(RadioGroup group, int checkedId) {
-		switch (checkedId) {
-		case R.id.gps_locate_button:
-			// 设置定位的类型为定位模式
-			aMap.setMyLocationType(AMap.LOCATION_TYPE_LOCATE);
-			break;
-		case R.id.gps_follow_button:
-			// 设置定位的类型为 跟随模式
-			aMap.setMyLocationType(AMap.LOCATION_TYPE_MAP_FOLLOW);
-			break;
-		case R.id.gps_rotate_button:
-			// 设置定位的类型为根据地图面向方向旋转
-			aMap.setMyLocationType(AMap.LOCATION_TYPE_MAP_ROTATE);
-			break;
-		}
 
 	}
 

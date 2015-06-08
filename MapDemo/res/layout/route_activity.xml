@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFF"
+    android:background="#fff"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -147,39 +147,6 @@
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
-
-    <RadioGroup
-        android:id="@+id/gps_radio_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|left"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:background="#ebebeb"
-        android:orientation="horizontal" >
-
-        <RadioButton
-            android:id="@+id/gps_locate_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="定位"
-            android:textColor="@android:color/black" />
-
-        <RadioButton
-            android:id="@+id/gps_follow_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="跟随"
-            android:textColor="@android:color/black" />
-
-        <RadioButton
-            android:id="@+id/gps_rotate_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="旋转"
-            android:textColor="@android:color/black" />
-    </RadioGroup>
 
     <com.amap.api.maps.MapView
         android:id="@+id/map"

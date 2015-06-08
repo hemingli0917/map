@@ -1,0 +1,95 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TabHost
+            android:id="@android:id/tabhost"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/whiteColor"
+                android:orientation="vertical" >
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.0dip"
+                    android:layout_weight="1.0" />
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.0"
+                    android:visibility="gone" />
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <RadioGroup
+                        android:id="@+id/main_tab_group"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:background="#ddd"
+                        android:gravity="bottom"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/main_tab_weather"
+                            style="@style/main_tab_bottom"
+                            android:layout_weight="1.0"
+                            android:drawableTop="@drawable/alarm"
+                            android:text="@string/weather" />
+
+                        <RadioButton
+                            android:id="@+id/main_goout"
+                            style="@style/main_tab_bottom"
+                            android:layout_weight="1.0"
+                            android:drawableTop="@drawable/alarm"
+                            android:text="@string/goout" />
+
+                        <RadioButton
+                            android:id="@+id/main_tab_alarm"
+                            style="@style/main_tab_bottom"
+                            android:layout_weight="1.0"
+                            android:drawableTop="@drawable/alarm"
+                            android:text="@string/alarm" />
+
+                        <RadioButton
+                            android:id="@+id/main_tab_settings"
+                            style="@style/main_tab_bottom"
+                            android:layout_weight="1.0"
+                            android:drawableTop="@drawable/alarm"
+                            android:text="@string/setting" />
+                    </RadioGroup>
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/navigation_drawer"
+        android:layout_width="@dimen/navdrawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:drawSelectorOnTop="false"
+        android:paddingTop="15dip" >
+    </ListView>
+
+</android.support.v4.widget.DrawerLayout>
