@@ -18,7 +18,7 @@
             android:value="ffcc0c15cb7b262b3021995e5cd3918a" />
 
         <activity
-            android:name="com.example.view.MainActivity"
+            android:name="com.example.mapdemo.WeatherActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,8 +29,6 @@
         <activity android:name="com.example.mapdemo.RouteActivity" >
         </activity>
         <activity android:name="com.example.mapdemo.GeoFenceActivity" >
-        </activity>
-        <activity android:name="com.example.mapdemo.WeatherActivity" >
         </activity>
         <activity android:name="com.example.mapdemo.SettingActivity" >
         </activity>

@@ -1,23 +1,37 @@
 package com.example.mapdemo;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.RadioGroup;
+import android.widget.SimpleAdapter;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
@@ -87,6 +101,11 @@ public class RouteActivity extends Activity implements OnMarkerClickListener,
 	private ImageButton startImageButton;
 	private ImageButton endImageButton;
 	private ImageButton routeSearchImagebtn;
+	// 抽屉
+	private ActionBarDrawerToggle mDrawerToggle;
+	private DrawerLayout mDrawerLayout;
+	private String[] mListTitles;
+	private ListView mDrawerList;
 
 	private EditText startTextView;
 	private EditText endTextView;
@@ -118,17 +137,109 @@ public class RouteActivity extends Activity implements OnMarkerClickListener,
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.route_activity);
-		/*
-		 * 设置离线地图存储目录，在下载离线地图或初始化地图设置; 使用过程中可自行设置, 若自行设置了离线地图存储的路径，
-		 * 则需要在离线地图下载和使用地图页面都进行路径设置
-		 */
-		// 为了其他界面可以使用下载的离线地图，使用默认位置存储，屏蔽了自定义设置
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.rout_drawer_layout);
+
+		mDrawerLayout.setDrawerShadow(R.drawable.navigation_drawer_shadow,
+				GravityCompat.START);
+
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setHomeButtonEnabled(true);
+
+		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+				R.drawable.ic_drawer, R.string.navigation_drawer_open,
+				R.string.navigation_drawer_close) {
+			@Override
+			public void onDrawerClosed(View drawerView) {
+				super.onDrawerClosed(drawerView);
+				/* empty */
+			}
+
+			@Override
+			public void onDrawerOpened(View drawerView) {
+				super.onDrawerOpened(drawerView);
+				/* empty */
+			}
+		};
+
+		mDrawerLayout.post(new Runnable() {
+			@Override
+			public void run() {
+				mDrawerToggle.syncState();
+			}
+		});
+
+		mDrawerLayout.setDrawerListener(mDrawerToggle);
+		mListTitles = getResources().getStringArray(R.array.drawer_array);
+		mDrawerList = (ListView) findViewById(R.id.navigation_drawer);
+		String[] from = { "icon", "text" };
+		int[] to = { R.id.nav_icon, R.id.nav_text };
+		int[] drawables = { R.drawable.alarm, R.drawable.equip,
+				R.drawable.contacts, R.drawable.setting };
+
+		List<Map<String, Object>> menus = new ArrayList<Map<String, Object>>();
+		for (int i = 0; i < mListTitles.length; i++) {
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("icon", drawables[i]);
+			map.put("text", mListTitles[i]);
+			menus.add(map);
+		}
+
+		SimpleAdapter adapter = new SimpleAdapter(this, menus,
+				R.layout.navigator_item, from, to);
+		mDrawerList.setAdapter(adapter);
+		mDrawerList
+				.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view,
+							int position, long id) {
+						selectItem(position);
+					}
+				});
+
 		MapsInitializer.sdcardDir = OffLineMapUtils.getSdCacheDir(this);
 		mapView = (MapView) findViewById(R.id.map);
 		mapView.onCreate(bundle);// 此方法必须重写
-		init();
+		selectItem(1);
+	}
+
+	protected void selectItem(int position) {
+
+		// Highlight the selected item, update the title, and close the drawer
+		mDrawerList.setItemChecked(position, true);
+		setTitle(mListTitles[position]);
+
+		switch (position) {
+		case 0:// 天气
+			Intent weatherintent = new Intent(RouteActivity.this,
+					WeatherActivity.class);
+			startActivity(weatherintent);
+
+			break;
+
+		case 1:// 出行
+			init();
+			break;
+
+		case 2:// 到站提醒
+			Intent alarmintent = new Intent(RouteActivity.this,
+					GeoFenceActivity.class);
+			startActivity(alarmintent);
+			break;
+
+		case 3:// setting
+			Intent settingintent = new Intent(RouteActivity.this,
+					SettingActivity.class);
+			startActivity(settingintent);
+			break;
+
+		default:
+			break;
+
+		}
+		closeDrawer();
+
 	}
 
 	/**
@@ -761,6 +872,50 @@ public class RouteActivity extends Activity implements OnMarkerClickListener,
 					LocationProviderProxy.AMapNetwork, 60 * 1000, 10, this);
 		}
 
+	}
+
+	public void closeDrawer() {
+		if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
+			mDrawerLayout.closeDrawer(Gravity.LEFT);
+		}
+	}
+
+	public boolean isDrawerOpen() {
+		return mDrawerLayout != null
+				&& mDrawerLayout
+						.isDrawerOpen(findViewById(R.id.navigation_drawer));
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+		mDrawerToggle.onConfigurationChanged(newConfig);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.main, menu);
+
+		if (mDrawerLayout != null && isDrawerOpen())
+			showGlobalContextActionBar();
+
+		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (mDrawerToggle.onOptionsItemSelected(item)) {
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
+
+	private void showGlobalContextActionBar() {
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayShowTitleEnabled(true);
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+		actionBar.setTitle(R.string.app_name);
 	}
 
 	/*

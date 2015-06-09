@@ -1,16 +1,29 @@
 package com.example.mapdemo;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.TimeZone;
 
+import android.app.ActionBar;
 import android.app.Activity;
-import android.location.Location;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.Window;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,11 +31,8 @@ import com.amap.api.location.AMapLocalDayWeatherForecast;
 import com.amap.api.location.AMapLocalWeatherForecast;
 import com.amap.api.location.AMapLocalWeatherListener;
 import com.amap.api.location.AMapLocalWeatherLive;
-import com.amap.api.location.AMapLocation;
 import com.amap.api.location.LocationManagerProxy;
-import com.amap.api.location.LocationProviderProxy;
 import com.example.adapter.WeatherAdapter;
-import com.example.been.Weather;
 
 public class WeatherActivity extends Activity implements
 		AMapLocalWeatherListener {
@@ -46,11 +56,17 @@ public class WeatherActivity extends Activity implements
 	private TextView temp;// 温度
 	private ImageView weatherlogo;
 	private String weathertype;
+	private ActionBarDrawerToggle mDrawerToggle;
+	private DrawerLayout mDrawerLayout;
+	private String[] mListTitles;
+	private ListView mDrawerList;
 
 	private LinearLayout mlinearlayout;// 整体的布局
 	private LinearLayout mlistlinearlayout;// list布局
 	private ListView mweatherlv;
 	private WeatherAdapter mAdapter;
+	private CharSequence mDrawerTitle;
+	private CharSequence mTitle;
 
 	private LocationManagerProxy mLocationManagerProxy;
 
@@ -58,15 +74,108 @@ public class WeatherActivity extends Activity implements
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
-		// requestWindowFeature(Window.FEATURE_NO_TITLE);// 不显示程序的标题栏
-		// 带完善布局
-		setContentView(R.layout.weather_info);
+		setContentView(R.layout.main_);
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-		initView();
-		StringData();
-		ChangeBackground();
-		init();
-		// nextweather();
+		mDrawerLayout.setDrawerShadow(R.drawable.navigation_drawer_shadow,
+				GravityCompat.START);
+
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setHomeButtonEnabled(true);
+
+		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+				R.drawable.ic_drawer, R.string.navigation_drawer_open,
+				R.string.navigation_drawer_close) {
+			@Override
+			public void onDrawerClosed(View drawerView) {
+				super.onDrawerClosed(drawerView);
+				/* empty */
+			}
+
+			@Override
+			public void onDrawerOpened(View drawerView) {
+				super.onDrawerOpened(drawerView);
+				/* empty */
+			}
+		};
+
+		mDrawerLayout.post(new Runnable() {
+			@Override
+			public void run() {
+				mDrawerToggle.syncState();
+			}
+		});
+
+		mDrawerLayout.setDrawerListener(mDrawerToggle);
+		mListTitles = getResources().getStringArray(R.array.drawer_array);
+		mDrawerList = (ListView) findViewById(R.id.navigation_drawer);
+		String[] from = { "icon", "text" };
+		int[] to = { R.id.nav_icon, R.id.nav_text };
+		int[] drawables = { R.drawable.alarm, R.drawable.equip,
+				R.drawable.contacts, R.drawable.setting };
+
+		List<Map<String, Object>> menus = new ArrayList<Map<String, Object>>();
+		for (int i = 0; i < mListTitles.length; i++) {
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("icon", drawables[i]);
+			map.put("text", mListTitles[i]);
+			menus.add(map);
+		}
+
+		SimpleAdapter adapter = new SimpleAdapter(this, menus,
+				R.layout.navigator_item, from, to);
+		mDrawerList.setAdapter(adapter);
+		mDrawerList
+				.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view,
+							int position, long id) {
+						selectItem(position);
+					}
+				});
+
+		selectItem(0);
+
+	}
+
+	protected void selectItem(int position) {
+
+		// Highlight the selected item, update the title, and close the drawer
+		mDrawerList.setItemChecked(position, true);
+		setTitle(mListTitles[position]);
+
+		switch (position) {
+		case 0:// 天气
+			initView();
+			StringData();
+			init();
+			break;
+
+		case 1:// 出行
+			Intent outintent = new Intent(WeatherActivity.this,
+					RouteActivity.class);
+			startActivity(outintent);
+			break;
+
+		case 2:// 到站提醒
+			Intent alarmintent = new Intent(WeatherActivity.this,
+					GeoFenceActivity.class);
+			startActivity(alarmintent);
+			break;
+
+		case 3:// setting
+			Intent settingintent = new Intent(WeatherActivity.this,
+					SettingActivity.class);
+			startActivity(settingintent);
+			break;
+
+		default:
+			break;
+
+		}
+		closeDrawer();
+
 	}
 
 	private void ChangeBackground() {
@@ -244,6 +353,50 @@ public class WeatherActivity extends Activity implements
 			weatherlogo.setBackgroundResource(R.drawable.weather_icyrain);
 		}
 
+	}
+
+	public void closeDrawer() {
+		if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
+			mDrawerLayout.closeDrawer(Gravity.LEFT);
+		}
+	}
+
+	public boolean isDrawerOpen() {
+		return mDrawerLayout != null
+				&& mDrawerLayout
+						.isDrawerOpen(findViewById(R.id.navigation_drawer));
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+		mDrawerToggle.onConfigurationChanged(newConfig);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.main, menu);
+
+		if (mDrawerLayout != null && isDrawerOpen())
+			showGlobalContextActionBar();
+
+		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (mDrawerToggle.onOptionsItemSelected(item)) {
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
+
+	private void showGlobalContextActionBar() {
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayShowTitleEnabled(true);
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+		actionBar.setTitle(R.string.app_name);
 	}
 
 	@Override

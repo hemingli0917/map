@@ -5,79 +5,222 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+    <LinearLayout
+        android:id="@+id/weather_linearlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#fff"
+        android:orientation="vertical" >
 
-        <TabHost
-            android:id="@android:id/tabhost"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/todaycalander"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:text="2015-6-2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/todaytime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:text="星期天"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/imagesLayout"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+            android:layout_height="wrap_content" >
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="@color/whiteColor"
-                android:orientation="vertical" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                android:text="当前城市:"
+                android:textSize="10sp" />
 
-                <FrameLayout
-                    android:id="@android:id/tabcontent"
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.0dip"
-                    android:layout_weight="1.0" />
+            <TextView
+                android:id="@+id/dCityText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textView1"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="成 都"
+                android:textSize="20sp" />
 
-                <TabWidget
-                    android:id="@android:id/tabs"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.0"
-                    android:visibility="gone" />
+            <ImageView
+                android:id="@+id/dForecastImage"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp" />
 
-                <FrameLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" >
+            <ImageView
+                android:id="@+id/dMoveLeftImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="60dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/weather_cloudy"
+                android:visibility="invisible" />
 
-                    <RadioGroup
-                        android:id="@+id/main_tab_group"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:background="#ddd"
-                        android:gravity="bottom"
-                        android:orientation="horizontal" >
+            <ImageView
+                android:id="@+id/dMoveRightImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="70dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/weather_cloudy"
+                android:visibility="invisible" />
 
-                        <RadioButton
-                            android:id="@+id/main_tab_weather"
-                            style="@style/main_tab_bottom"
-                            android:layout_weight="1.0"
-                            android:drawableTop="@drawable/alarm"
-                            android:text="@string/weather" />
+            <TextView
+                android:id="@+id/dweatherText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="60dp"
+                android:padding="5dp"
+                android:text="晴"
+                android:textSize="24sp"
+                android:width="100dip" />
 
-                        <RadioButton
-                            android:id="@+id/main_goout"
-                            style="@style/main_tab_bottom"
-                            android:layout_weight="1.0"
-                            android:drawableTop="@drawable/alarm"
-                            android:text="@string/goout" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:padding="5dp"
+                android:text="湿    度:"
+                android:textSize="10sp"
+                android:width="50dp" />
 
-                        <RadioButton
-                            android:id="@+id/main_tab_alarm"
-                            style="@style/main_tab_bottom"
-                            android:layout_weight="1.0"
-                            android:drawableTop="@drawable/alarm"
-                            android:text="@string/alarm" />
+            <TextView
+                android:id="@+id/dHumidityText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:padding="5dp"
+                android:text="  91"
+                android:textSize="18sp"
+                android:width="160dip" />
 
-                        <RadioButton
-                            android:id="@+id/main_tab_settings"
-                            style="@style/main_tab_bottom"
-                            android:layout_weight="1.0"
-                            android:drawableTop="@drawable/alarm"
-                            android:text="@string/setting" />
-                    </RadioGroup>
-                </FrameLayout>
-            </LinearLayout>
-        </TabHost>
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="110dp"
+                android:padding="5dp"
+                android:text="风级风向:"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/dWindText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="130dp"
+                android:padding="5dp"
+                android:text="风级风向"
+                android:textSize="18sp"
+                android:width="160dip" />
+
+            <TextView
+                android:id="@+id/dTempCText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="40dp"
+                android:layout_toRightOf="@+id/dCityText"
+                android:padding="5dp"
+                android:text="29°"
+                android:textSize="46sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="未来天气"
+            android:textSize="30sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#ddd" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="时间"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="@string/weather_info"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="@string/weather_temp"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="@string/weather_dir"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#ddd" />
+
+        <ListView
+            android:id="@+id/weather_lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:divider="#000"
+            android:dividerHeight="8dp" >
+        </ListView>
+    </LinearLayout>
 
     <ListView
         android:id="@+id/navigation_drawer"
