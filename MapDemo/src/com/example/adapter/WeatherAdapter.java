@@ -2,17 +2,15 @@ package com.example.adapter;
 
 import java.util.List;
 
-import com.amap.api.location.AMapLocalDayWeatherForecast;
-import com.example.been.Weather;
-import com.example.mapdemo.R;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.amap.api.location.AMapLocalDayWeatherForecast;
+import com.example.activity.R;
 
 public class WeatherAdapter extends BaseAdapter {
 	private Context context;

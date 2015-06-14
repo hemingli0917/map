@@ -3,14 +3,10 @@
     tools:context="org.lab.smartmonitor.MainActivity" >
 
     <item
-        android:id="@+id/action_sort"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_sort"/>
-    <item
         android:id="@+id/aciton_exit"
         android:orderInCategory="120"
         android:showAsAction="never"
-        android:title="@string/action_exit"/>
+        android:title="@string/action_exit"
+        />
 
 </menu>

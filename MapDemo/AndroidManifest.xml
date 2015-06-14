@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mapdemo"
+    package="com.example.activity"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -10,15 +10,15 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ic_luncher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="ffcc0c15cb7b262b3021995e5cd3918a" />
+            android:value="cc162c7249abbafabbc7dd500269e1dd" />
 
         <activity
-            android:name="com.example.mapdemo.WeatherActivity"
+            android:name="com.example.activity.WeatherActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,11 +26,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.mapdemo.RouteActivity" >
+        <activity android:name="com.example.activity.RouteActivity" >
         </activity>
-        <activity android:name="com.example.mapdemo.GeoFenceActivity" >
+        <activity android:name="com.example.activity.BuslineActivity" >
         </activity>
-        <activity android:name="com.example.mapdemo.SettingActivity" >
+        <activity android:name="com.example.activity.SettingActivity" >
         </activity>
     </application>
 

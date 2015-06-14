@@ -10,9 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.amap.api.services.core.PoiItem;
-import com.example.mapdemo.R;
-import com.example.mapdemo.R.id;
-import com.example.mapdemo.R.layout;
+import com.example.activity.R;
 
 public class RouteSearchAdapter extends BaseAdapter {
 	private Context context;

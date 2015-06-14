@@ -9,7 +9,7 @@
         android:id="@+id/weather_linearlayout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#fff"
+        android:background="@android:color/transparent"
         android:orientation="vertical" >
 
         <LinearLayout
@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:padding="3dp"
                 android:text="2015-6-2"
+                android:textColor="@color/primary_text"
                 android:textSize="20sp" />
 
             <TextView
@@ -32,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:padding="3dp"
                 android:text="星期天"
+                android:textColor="@color/secondary_text"
                 android:textSize="25sp" />
         </LinearLayout>
 
@@ -46,6 +48,7 @@
                 android:layout_marginTop="5dp"
                 android:padding="2dp"
                 android:text="当前城市:"
+                android:textColor="@color/primary_text"
                 android:textSize="10sp" />
 
             <TextView
@@ -58,6 +61,7 @@
                 android:gravity="center_vertical"
                 android:padding="5dp"
                 android:text="成 都"
+                android:textColor="@color/secondary_text"
                 android:textSize="20sp" />
 
             <ImageView
@@ -65,7 +69,7 @@
                 android:layout_width="180dp"
                 android:layout_height="130dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="15dp" />
+                android:layout_marginRight="5dp" />
 
             <ImageView
                 android:id="@+id/dMoveLeftImage"
@@ -96,7 +100,7 @@
                 android:layout_marginLeft="100dp"
                 android:layout_marginTop="60dp"
                 android:padding="5dp"
-                android:text="晴"
+                android:textColor="@color/secondary_text"
                 android:textSize="24sp"
                 android:width="100dip" />
 
@@ -106,6 +110,7 @@
                 android:layout_marginTop="60dp"
                 android:padding="5dp"
                 android:text="湿    度:"
+                android:textColor="@color/primary_text"
                 android:textSize="10sp"
                 android:width="50dp" />
 
@@ -115,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
                 android:padding="5dp"
-                android:text="  91"
+                android:textColor="@color/secondary_text"
                 android:textSize="18sp"
                 android:width="160dip" />
 
@@ -125,6 +130,7 @@
                 android:layout_marginTop="110dp"
                 android:padding="5dp"
                 android:text="风级风向:"
+                android:textColor="@color/primary_text"
                 android:textSize="10sp" />
 
             <TextView
@@ -133,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="130dp"
                 android:padding="5dp"
-                android:text="风级风向"
+                android:textColor="@color/secondary_text"
                 android:textSize="18sp"
                 android:width="160dip" />
 
@@ -145,17 +151,18 @@
                 android:layout_marginLeft="40dp"
                 android:layout_toRightOf="@+id/dCityText"
                 android:padding="5dp"
-                android:text="29°"
+                android:textColor="@color/secondary_text"
                 android:textSize="46sp" />
         </RelativeLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="70dp"
             android:gravity="center"
             android:text="未来天气"
-            android:textSize="30sp" />
+            android:textColor="@color/primary_text"
+            android:textSize="26sp" />
 
         <View
             android:layout_width="match_parent"
@@ -181,7 +188,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:gravity="center"
                 android:padding="3dp"
                 android:text="@string/weather_info"
@@ -191,7 +198,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:gravity="center"
+                android:gravity="left"
                 android:padding="3dp"
                 android:text="@string/weather_temp"
                 android:textSize="15sp" />
@@ -199,8 +206,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2.5"
-                android:gravity="center"
+                android:layout_weight="1"
+                android:gravity="left"
                 android:padding="3dp"
                 android:text="@string/weather_dir"
                 android:textSize="15sp" />
@@ -216,9 +223,9 @@
             android:id="@+id/weather_lv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:divider="#000"
-            android:dividerHeight="8dp" >
+            android:layout_margin="8dp"
+            android:divider="#ddd"
+            android:dividerHeight="2dp" >
         </ListView>
     </LinearLayout>
 
@@ -232,7 +239,7 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
         android:drawSelectorOnTop="false"
-        android:paddingTop="15dip" >
+        android:paddingTop="1dip" >
     </ListView>
 
 </android.support.v4.widget.DrawerLayout>
